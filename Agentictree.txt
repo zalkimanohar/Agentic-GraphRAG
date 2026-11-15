@@ -1,0 +1,25 @@
+Agentic-GraphRAG-v4/
+├── api/
+│   ├── __init__.py
+│   └── app.py                      # FastAPI server exposing agent endpoints
+├── agent_core/
+│   ├── __init__.py
+│   ├── graph_router.py             # LangGraph stateful orchestrator & intent classifier
+│   └── mcp_server.py               # Model Context Protocol (MCP) uniform tool servers
+├── reranker/
+│   ├── __init__.py
+│   └── cross_encoder.py            # BAAI/bge-reranker-v2-m3 scoring & context compressor
+├── stores/
+│   ├── __init__.py
+│   ├── vector_store.py             # ChromaDB vector embedding retrieval
+│   ├── graph_store.py              # Neo4j property graph connector & Cypher generator
+│   └── sql_store.py                # DuckDB / Gold Parquet deterministic SQL layer
+├── ml_engine/
+│   ├── __init__.py
+│   ├── trainer.py                  # Parallel 6-engine ML registry (XGB, LGBM, Isolation Forest, etc.)
+│   └── registry/                   # Serialized model weights & metadata JSON
+├── ui/
+│   └── app.py                      # Streamlit interactive chat & monitoring dashboard
+├── requirements.txt                # Pinned python dependencies for v4.0
+└── scripts/
+    └── run_v4_pipeline.sh          # Execution script to start FastAPI, Streamlit, and verify stores
